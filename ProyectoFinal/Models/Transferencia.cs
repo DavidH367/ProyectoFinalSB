@@ -16,6 +16,7 @@ namespace ProyectoFinal.Models
         public string Moneda { get; set; }
         [JsonProperty("valor")]
         public double Valor { get; set; }
+
         [JsonProperty("envia")]
         public string Envia { get; set; }
         [JsonProperty("recibe")]
