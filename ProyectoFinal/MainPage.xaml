@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.MainPage">
+
+    <StackLayout>
+        <Label Text="STAR BANK"/>
+
+        
+        
+        <StackLayout>
+            <Label Text="Usuario"/>
+            <Entry/>
+        </StackLayout>
+
+
+        <StackLayout>
+            <Label Text="Contraseña"/>
+            <Entry/>
+            <Label Text="Olvidé mi contraseña"/>
+        </StackLayout>
+
+
+        <Button Text="Ingresar"/>
+
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="¿No tiene una cuenta?"/>
+            <Label Text="Aperturar cuenta"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

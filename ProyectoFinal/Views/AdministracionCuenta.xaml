@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.AdministracionCuenta"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout BackgroundColor="#131D47">
+        <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="Fill">
+            <!-- Volver<Image/>-->
+            <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="ADMINISTRACIÓN DE CUENTAS" FontSize="20"/>
+
+            <ImageButton Clicked="ImageButton_Clicked" Source="home.png" HeightRequest="25" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+        </StackLayout>
+
+
+
+        <StackLayout>
+            <Label TextColor="#FFFFFF" x:Name="txttipocuenta"/>
+            <StackLayout Orientation="Horizontal">
+                <Label TextColor="#FFFFFF" x:Name="txtmoneda"/>
+                <Label TextColor="#FFFFFF" x:Name="txtsaldo"/>
+            </StackLayout>
+            <Label TextColor="#FFFFFF" Text="Saldo Corriente"/>
+        </StackLayout>
+
+
+
+        <StackLayout>
+            <Label TextColor="#FFFFFF" x:Name="txtcodigocuenta"/>
+        </StackLayout>
+
+
+
+        <Button Text="Control Presupuestario" Clicked="btncontrolp_Clicked"/>
+
+
+
+        <StackLayout>
+            <Label TextColor="#FFFFFF" x:Name="txtmesactual"/>
+
+            <StackLayout>
+                <CollectionView x:Name="ListTransferenciasMes"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="ListTransferenciasMes_SelectionChanged">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" BackgroundColor="#39425D">
+                                <Label TextColor="#FFFFFF" Text="{Binding Accion}"/>
+                                <Label TextColor="#FFFFFF" Text="{Binding Moneda}"/>
+                                <Label TextColor="#FFFFFF" Text="{Binding Valor}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+
+
+
+        <Button Text="Historial de Transacciones" x:Name="btnhtransacciones" Clicked="btnhtransacciones_Clicked"/>
+
+
+
+        <Button Clicked="btnvolver_Clicked"
+                Text="VOLVER"
+                BackgroundColor="#9297A6"
+                TextColor="#F2F2F2"/>
+
+    </StackLayout>
+</ContentPage>

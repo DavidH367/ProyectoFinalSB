@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.Servicios">
+    <StackLayout>
+
+        <StackLayout Orientation="Horizontal" Grid.Row="0">
+            <!-- Volver<Image/>-->
+            <Label Text="SERVICIOS"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+
+            <Frame BackgroundColor="#9297A6" Padding="5">
+                <StackLayout>
+                    <Label Text="Agua residencial" TextColor="#F2F2F2"/>
+
+                    <Image Source="soltar.png" HeightRequest="50" WidthRequest="50"/>
+                </StackLayout>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_agua"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BackgroundColor="#9297A6" Padding="5">
+                <StackLayout>
+                    <Label Text="Energía residencial" TextColor="#F2F2F2"/>
+
+                    <Image Source="destello.png" HeightRequest="50" WidthRequest="50"/>
+                </StackLayout>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_energia"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+        </StackLayout>
+
+
+
+        <StackLayout BackgroundColor="#465173">
+            <Label Text="Eventos:" TextColor="#F2F2F2"/>
+        </StackLayout>
+
+        <StackLayout>
+
+            <Label x:Name="mensajesineventos" FontSize="Medium" FontAttributes="Bold" TextColor="Gray" Text="No hay eventos" IsVisible="False"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+            <CollectionView x:Name="ListPromociones"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="ListPromociones_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#9297A6" Padding="15" CornerRadius="10">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Nombre}" TextColor="#F2F2F2"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

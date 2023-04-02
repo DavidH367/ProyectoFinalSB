@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.Transferencias">
+    
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" BackgroundColor="#465173">
+            <!-- Volver<Image/>-->
+            <Label Text="ADMINISTRACIÓN DE CUENTAS"/>
+        </StackLayout>
+
+        <ScrollView>
+
+            <StackLayout>
+
+                <StackLayout>
+                    <Label Text="Cuenta a debitar:"/>
+
+
+
+                    <StackLayout x:Name="cardcuenta" IsVisible="false" BackgroundColor="#008573">
+                        <StackLayout>
+                            <Label Text="Cuenta de ahorros"/>
+                            <Label x:Name="codigocuenta"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Margin="0,25,0,0">
+                            <Image Source="piggybank.png" HeightRequest="50" Margin="0,0,0,20"/>
+
+                            <StackLayout>
+                                <Label Text="Saldo disponible"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label x:Name="moneda"/>
+                                    <Label x:Name="saldo"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+
+
+
+                    <Button Text="Seleccionar cuenta" Clicked="btnscuenta_Clicked"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Cuenta que recibe:"/>
+
+                    <Entry x:Name="cuentaa" Placeholder="Digite aqui la cuenta del acreditante" TextChanged="cuentaa_TextChanged" Focused="cuentaa_Focused"/>
+
+                    <ScrollView x:Name="dropdowncuentas" HeightRequest="100" IsVisible="False">
+                        <CollectionView x:Name="ListaCuentas"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="ListaCuentas_SelectionChanged">
+
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10"/>
+                            </CollectionView.ItemsLayout>
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="#39425D">
+                                        <Label TextColor="#FFFFFF" Text="{Binding Campo}"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                    
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Detalles de la transacción:"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="monto" TextChanged="monto_TextChanged" Placeholder="Monto a transferir" Keyboard="Numeric"/>
+                        <Frame CornerRadius="10">
+                            <StackLayout>
+                                <Label Text="Conversión"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label x:Name="monedaconversion" FontAttributes="Bold"/>
+                                    <Label x:Name="valorconversion"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <Entry x:Name="concepto" Placeholder="Concepto (breve descripción)"/>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="chkcorreo"/>
+                        <Label Text="Enviar copia de la transferencia a tu correo">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="lblenviarcopia_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+
+                <Button x:Name="btntransferir" Clicked="btntransferir_Clicked" Text="TRANSFERIR"/>
+
+            </StackLayout>
+            
+        </ScrollView>
+
+    </StackLayout>
+    
+</ContentPage>

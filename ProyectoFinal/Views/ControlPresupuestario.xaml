@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.ControlPresupuestario">
+    <StackLayout>
+
+        <StackLayout Orientation="Horizontal" BackgroundColor="#465173">
+            <!-- Volver<Image/>-->
+            <Label Text="CONTROL PRESUPUESTARIO"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal"> 
+            <Label Text="Ver estadísticas de: "/>
+
+            <Picker x:Name="pckccuenta" Title="Seleccione una opción" SelectedIndexChanged="pckccuenta_SelectedIndexChanged" FontSize="16"
+                    HorizontalOptions="FillAndExpand">
+                <!--TitleColor="Red"-->
+            </Picker>
+        </StackLayout>
+
+
+
+        <StackLayout x:Name="detallestse">
+
+            <StackLayout>
+
+                <StackLayout BackgroundColor="#465173">
+                    <Label Text="Transferencias:" TextColor="#F2F2F2"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <StackLayout>
+                        <Label Text="Dinero entrado: "/>
+                        <Label x:Name="txttransferenciasde"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Dinero salido: "/>
+                        <Label x:Name="txttransferenciasds"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="Salidas: "/>
+                        <Label x:Name="txttransferenciass"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Entradas: "/>
+                        <Label x:Name="txttransferenciase"/>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+
+
+            <StackLayout>
+
+                <StackLayout BackgroundColor="#465173">
+                    <Label Text="Servicios:" TextColor="#F2F2F2"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <StackLayout>
+                        <Label Text="Dinero salido: "/>
+                        <Label x:Name="txtserviciosds"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="Salidas: "/>
+                        <Label x:Name="txtservicioss"/>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+
+
+            <StackLayout>
+
+                <StackLayout BackgroundColor="#465173">
+                    <Label Text="Eventos:" TextColor="#F2F2F2"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <StackLayout>
+                        <Label Text="Dinero salido: "/>
+                        <Label x:Name="txteventosds"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="Salidas: "/>
+                        <Label x:Name="txteventoss"/>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+        </StackLayout>
+
+
+
+
+        <StackLayout>
+
+            <StackLayout BackgroundColor="#465173">
+                <Label Text="TOTAL:" TextColor="#F2F2F2"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout>
+                    <Label Text="Salido: "/>
+                    <Label x:Name="txtdints"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Entrado: "/>
+                    <Label x:Name="txtdinte"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout>
+                    <Label Text="Salidas: "/>
+                    <Label x:Name="txtsalidas"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Entradas: "/>
+                    <Label x:Name="txtentradas"/>
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

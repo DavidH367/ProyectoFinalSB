@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.HistorialTransacciones"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout Spacing="0">
+        <StackLayout Orientation="Horizontal" BackgroundColor="#465173">
+            <!-- Volver<Image/>-->
+            <Label Text="HISTORIAL DE TRANSACCIONES"/>
+        </StackLayout>
+
+
+
+        <StackLayout BackgroundColor="#121D40">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                <Frame Padding="0">
+
+                    <Label x:Name="btntodos" Text="Todos"
+                       HorizontalOptions="CenterAndExpand"
+                       BackgroundColor="#465173"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       Padding="10"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btntodos_Clicked"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame Padding="0">
+                    <Label x:Name="btncreditos" Text="Créditos"
+                       
+                       HorizontalOptions="CenterAndExpand"
+                       BackgroundColor="White"
+                       TextColor="#6d758c"
+                       Padding="10"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btncreditos_Clicked"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame Padding="0">
+                    <Label x:Name="btndebitos" Text="Débitos"
+                       
+                       HorizontalOptions="CenterAndExpand"
+                       BackgroundColor="White"
+                       TextColor="#6d758c"
+                       Padding="10"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btndebitos_Clicked"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+
+
+
+            <CollectionView x:Name="ListTransferencias"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="ListTransferencias_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" Padding="2" BackgroundColor="{Binding color}">
+                            <!--#e81313-->
+
+                            <Frame BackgroundColor="#121D40" CornerRadius="10" Padding="10">
+                                <StackLayout BackgroundColor="Transparent">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding fecha}" TextColor="#F2F2F2"/>
+                                        </StackLayout>
+
+                                        <Image Source="{Binding imagen}" HeightRequest="25" HorizontalOptions="End" Margin="150,0,0,0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Vertical" Margin="0,25,0,0">
+                                        <StackLayout>
+                                            <Label Text="{Binding concepto}" FontAttributes="Bold" TextColor="#F2F2F2"/>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding accion}" TextColor="#F2F2F2"/>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding moneda}" TextColor="#F2F2F2"/>
+                                                <Label Text="{Binding valor}" TextColor="#F2F2F2"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                                
+                            </Frame>
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

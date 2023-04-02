@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.Tablero"
+             xmlns:Converters="clr-namespace:ProyectoFinal.Converters"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ByteArrayToImage x:Key="ByteToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout BackgroundColor="#131D47">
+
+        <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="Fill">
+            <!-- Volver<Image/>-->
+            <Label TextColor="#FFFFFF" Text="TABLERO" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+
+
+
+        <ScrollView Padding="25">
+
+            <StackLayout>
+
+                <!--<Image x:Name="imgusuario" Source="{Binding foto, Converter={StaticResource ByteToImage}}"/>-->
+                <Frame
+            Margin="0,15,0,0"
+            CornerRadius="100"
+            WidthRequest="150"
+            HeightRequest="150"
+            HorizontalOptions="Center"
+            Padding="0"
+            HasShadow="True">
+
+                    <Image x:Name="imgusuario" Aspect="AspectFill"/>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="perfil_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+
+
+                <StackLayout Margin="0,15,0,0" BackgroundColor="#465173" Padding="5">
+
+                    <Label x:Name="txtnombrecompleto" HorizontalOptions="Center" TextColor="#FFFFFF" FontSize="18"/>
+
+
+
+                    <Label x:Name="txtnombreusuario" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#FFFFFF"/>
+
+                </StackLayout>
+
+
+
+                <StackLayout Margin="0,25,0,25">
+                    <Label Text="Precio del dólar estadounidense" HorizontalOptions="Center" TextColor="#FFFFFF" FontAttributes="Bold"/>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+                        <Frame CornerRadius="10" HorizontalOptions="Center">
+                            <StackLayout>
+                                <Label Text="Compra"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="HNL " FontAttributes="Bold"/>
+                                    <Label x:Name="preciodolarc"/>
+                                  
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="10" HorizontalOptions="Center">
+                            <StackLayout>
+                                <Label Text="Venta"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="HNL " FontAttributes="Bold"/>
+                                    <Label x:Name="preciodolarv"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </StackLayout>
+                </StackLayout>
+
+
+
+                <Button Text="Administración de Cuentas"
+                        Margin="20,0,20,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
+                Clicked="btncuentas_Clicked"/>
+
+                <Button Text="Pagar Servicios"
+                        Margin="20,5,20,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
+                        Clicked="btnservicios_Clicked"/>
+                
+                <Button Text="Transferencias"
+                        Margin="20,5,20,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
+                        Clicked="btntransferencias_Clicked"/>
+                
+                <Button Text="Control Presupuestario"
+                        Margin="20,5,20,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
+                        Clicked="btncontrolp_Clicked"/>
+
+
+
+                
+
+            </StackLayout>
+            
+        </ScrollView>
+
+        <StackLayout HeightRequest="50" Orientation="Horizontal" BackgroundColor="#9297A6" Padding="5" VerticalOptions="EndAndExpand">
+            <ImageButton Clicked="btnsoporte_Clicked"
+                         
+                         Source="customerservice.png"
+                         HorizontalOptions="CenterAndExpand"
+                         BackgroundColor="Transparent"/>
+            <ImageButton Clicked="btnlogout_Clicked"
+                         
+                         Source="logout.png"
+                         HorizontalOptions="CenterAndExpand"
+                         BackgroundColor="Transparent"/>
+        </StackLayout>
+
+
+    </StackLayout>
+
+
+
+</ContentPage>

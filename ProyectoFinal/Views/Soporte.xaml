@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.Soporte"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout BackgroundColor="#131D47">
+        <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="Fill">
+            <!-- Volver<Image/>-->
+            <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="SOPORTE" FontSize="20"/>
+
+            <ImageButton Clicked="ImageButton_Clicked" Source="home.png" HeightRequest="25" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+        </StackLayout>
+
+
+
+        <ScrollView Padding="10">
+
+            <StackLayout>
+
+                <Label TextColor="#FFFFFF" Text="STAR BANK" FontSize="40" FontAttributes="Bold" Margin="25,25,0,0"/>
+
+
+
+                <StackLayout Margin="25,0,25,0">
+
+                    <StackLayout Margin="0,25,0,0">
+                        <Label TextColor="#FFFFFF" FontSize="20"  Text="Teléfonos"/>
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="2780-9000" FontAttributes="Bold"/>
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="2270-5020" FontAttributes="Bold"/>
+                    </StackLayout>
+
+
+
+                    <StackLayout Margin="0,25,0,0">
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="Línea Móvil 1"/>
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="9800-9090" FontAttributes="Bold"/>
+                    </StackLayout>
+
+
+
+                    <StackLayout Margin="0,25,0,0">
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="Línea Móvil 2"/>
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="3280-8000" FontAttributes="Bold"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+
+
+                <Label HorizontalOptions="Center" Margin="0,25,0,0" TextColor="#FFFFFF" FontSize="14" Text="Para llamar sin costo, marca *43 cualquier operadora."/>
+
+
+
+                <StackLayout Margin="0,25,0,0">
+                    <Label TextColor="#FFFFFF" FontSize="14" Text="O también puedes:"/>
+                    <Button Clicked="btncorreo_Clicked"
+                    
+                            Margin="0,10,0,0"
+                    Text="Enviarnos un correo"
+                    FontAttributes="Bold"
+                    BackgroundColor="#9297A6"
+                    TextColor="#F2F2F2"/>
+                </StackLayout>
+
+            </StackLayout>
+            
+        </ScrollView>
+        
+    </StackLayout>
+</ContentPage>

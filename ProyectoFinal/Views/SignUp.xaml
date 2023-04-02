@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.SignUp"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout BackgroundColor="#131D47">
+        <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="Fill">
+            <!-- Volver<Image/>-->
+            <Label TextColor="#FFFFFF" Text="REGISTRO" FontSize="20" FontAttributes="Bold"/>
+
+            <ImageButton Clicked="ImageButton_Clicked" Source="home.png" HeightRequest="25" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+        </StackLayout>
+
+        <ScrollView>
+
+            <StackLayout Padding="25">
+
+                <StackLayout>
+                    <Label Text="Fotografía" TextColor="#FFFFFF" FontAttributes="Bold"/>
+                    <Frame BackgroundColor="#FFFFFF" Padding="5">
+                        <Image x:Name="imgpersona" HeightRequest="200" WidthRequest="200"/>
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="imgpersona_Tapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+
+
+                    <StackLayout>
+                        <Label TextColor="#FFFFFF" Margin="0,25,0,0" Text="Nombre Completo"  FontAttributes="Bold"/>
+                        <Frame Padding="0" CornerRadius="10">
+
+                            <Entry x:Name="txtnombrecompleto"/>
+
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <StackLayout Orientation="Horizontal" Margin="0,25,0,0">
+                        <StackLayout>
+                            <Label TextColor="#FFFFFF" Text="Fecha de Nacimiento"  FontAttributes="Bold"/>
+                            <Frame Padding="0" CornerRadius="10">
+
+                                <DatePicker x:Name="dtfechanacimiento" VerticalOptions="CenterAndExpand" FontSize="18"/>
+                            </Frame>
+                            
+                            <!--Format="D"-->
+                        </StackLayout>
+
+                        <StackLayout Margin="10,0,0,0">
+                            <Label TextColor="#FFFFFF" Text="Sexo"  FontAttributes="Bold"/>
+
+                            <Frame Padding="0" CornerRadius="10">
+                                <Picker x:Name="pcksexo" Title="Seleccione un sexo" FontSize="18">
+                                    <!--TitleColor="Red"-->
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Masculino</x:String>
+                                            <x:String>Femenino</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+
+                            </Frame>
+                            
+                        </StackLayout>
+                    </StackLayout>
+
+
+
+                    <StackLayout Margin="0,25,0,0">
+                        <Label TextColor="#FFFFFF" Text="Dirección"/>
+                        <Frame Padding="0" CornerRadius="10">
+                            <Editor x:Name="txtdireccion" HeightRequest="100"/>
+
+                        </Frame>
+                    </StackLayout>
+
+
+                    
+                   <!--<Frame Padding="10" Margin="0,100,0,0" BackgroundColor="#9297A6" CornerRadius="10">
+                        <Label TextColor="#FFFFFF" Text="SIGUIENTE" FontAttributes="Bold" FontSize="16" HorizontalOptions="CenterAndExpand">
+                        </Label>
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="goSingUp2"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                    </Frame> -->
+                   
+                    
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout>
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Número de identidad"/>
+
+                        <Frame Padding="0" CornerRadius="10">
+                            <Entry x:Name="txtnumeroidentidad" MaxLength="13" Keyboard="Numeric"/>
+
+                        </Frame>
+
+                    </StackLayout>
+
+
+
+                    <StackLayout Margin="0,15,0,0">
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Nombre de usuario"/>
+                        <Frame Padding="0" CornerRadius="10">
+                            <Entry x:Name="txtusuario"/>
+
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <StackLayout Margin="0,15,0,0">
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Correo electrónico"/>
+                        <Frame Padding="0" CornerRadius="10">
+                            <Entry x:Name="txtemail" Keyboard="Email"/>
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <StackLayout>
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Contraseña"/>
+                        <Frame Padding="0" CornerRadius="10">
+
+                            <Entry x:Name="txtcontraseña" IsPassword="True"/>
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <StackLayout>
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Repetir contraseña"/>
+                        <Frame Padding="0" CornerRadius="10">
+                            <Entry x:Name="txtcontraseñarepetida" IsPassword="True"/>
+
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <Button Margin="0,25,0,0" BackgroundColor="#9297A6" x:Name="btnregistrar" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10" Text="Registrarme" Clicked="btnregistrarme"/>
+
+
+
+                    <Button Margin="0,100,0,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10" Text="Volver" Clicked="btninicio_Clicked"/>
+                </StackLayout>
+
+            </StackLayout>
+            
+
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

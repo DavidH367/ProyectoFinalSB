@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.SignUp2"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout BackgroundColor="#131D47">
+        <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="Fill">
+            <!-- Volver<Image/>-->
+            <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="REGISTRO" FontSize="20"/>
+
+            <ImageButton Clicked="ImageButton_Clicked" Source="home.png" HeightRequest="25" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+        </StackLayout>
+
+
+        <ScrollView Padding="25">
+
+            <StackLayout>
+
+                <StackLayout>
+                    <StackLayout>
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Número de identidad"/>
+
+                        <Frame Padding="0" CornerRadius="10">
+                            <Entry x:Name="txtnumeroidentidad" MaxLength="13" Keyboard="Numeric"/>
+                            
+                        </Frame>
+                        
+                    </StackLayout>
+
+
+
+                    <StackLayout Margin="0,15,0,0">
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Nombre de usuario"/>
+                        <Frame Padding="0" CornerRadius="10">
+                            <Entry x:Name="txtusuario"/>
+                            
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <StackLayout Margin="0,15,0,0">
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Correo electrónico"/>
+                        <Frame Padding="0" CornerRadius="10">
+                            <Entry x:Name="txtemail" Keyboard="Email"/>
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <StackLayout>
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Contraseña"/>
+                        <Frame Padding="0" CornerRadius="10">
+
+                            <Entry x:Name="txtcontraseña" IsPassword="True"/>
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <StackLayout>
+                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Repetir contraseña"/>
+                        <Frame Padding="0" CornerRadius="10">
+                            <Entry x:Name="txtcontraseñarepetida" IsPassword="True"/>
+                            
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <Button Margin="0,25,0,0" BackgroundColor="#9297A6" x:Name="btnregistrar" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10" Text="Registrarme" Clicked="btnregistrarme"/>
+
+
+
+                    <Button Margin="0,100,0,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10" Text="Volver" Clicked="btninicio_Clicked"/>
+                </StackLayout>
+
+            </StackLayout>
+            
+        </ScrollView>
+        
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.Servicio">
+    <StackLayout BackgroundColor="#121D40">
+
+        <StackLayout Orientation="Horizontal" BackgroundColor="#465173">
+            <!-- Volver<Image/>-->
+            <Label Text="ADMINISTRACIÓN DE CUENTAS"/>
+        </StackLayout>
+
+        <ScrollView>
+
+            <StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label x:Name="txttitulo" TextColor="#FFFFFF" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label x:Name="txtdescripcion" TextColor="#FFFFFF"/>
+                    </StackLayout>
+
+                    <Image x:Name="imgservicio" WidthRequest="150" HeightRequest="150"/>
+                </StackLayout>
+
+
+
+                <StackLayout>
+                    <StackLayout BackgroundColor="#465173">
+                        <Label Text="Detalles de la transferencia:" TextColor="#FFFFFF"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout>
+                            <Label Text="ID de cliente:" TextColor="#FFFFFF"/>
+                            <Frame CornerRadius="10">
+                                <Label x:Name="idcliente" TextColor="#000000" FontAttributes="Bold"/>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+
+
+
+                    <StackLayout>
+                        <Label Text="Cuenta a debitar:"/>
+
+
+
+                        <StackLayout x:Name="cardcuenta" IsVisible="false" BackgroundColor="#008573">
+                            <StackLayout>
+                                <Label Text="Cuenta de ahorros"/>
+                                <Label x:Name="codigocuenta"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" Margin="0,25,0,0">
+                                <Image Source="piggybank.png" HeightRequest="50" Margin="0,0,0,20"/>
+
+                                <StackLayout>
+                                    <Label Text="Saldo disponible"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label x:Name="moneda"/>
+                                        <Label x:Name="saldo"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+
+
+                        <Button Text="Seleccionar cuenta" Clicked="btnscuenta_Clicked"/>
+                    </StackLayout>
+
+
+
+                    <StackLayout>
+                        <Label Text="Monto a debitar" TextColor="#FFFFFF"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="HNL" TextColor="#FFFFFF" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                            <Frame CornerRadius="10">
+                                <Label x:Name="adebitar" WidthRequest="200" Text="0.00"/>
+                            </Frame>
+
+                            <Frame CornerRadius="10">
+                                <StackLayout>
+                                    <Label Text="Conversión"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label x:Name="monedaconversion" FontAttributes="Bold"/>
+                                        <Label x:Name="valorconversion"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+                        </StackLayout>
+                    </StackLayout>
+
+
+
+
+                    <StackLayout x:Name="calendario" IsVisible="False" HorizontalOptions="Center">
+                        <Label Text="2022" TextColor="#FFFFFF" FontAttributes="Bold" FontSize="Medium"/>
+
+                        <Frame BackgroundColor="#111111" Margin="1" Padding="0" CornerRadius="10">
+
+                            <StackLayout Spacing="0">
+
+                                <Grid RowSpacing="0"
+                    ColumnSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="75"/>
+                                        <RowDefinition Height="75"/>
+                                        <RowDefinition Height="75"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="75"/>
+                                        <ColumnDefinition Width="75"/>
+                                        <ColumnDefinition Width="75"/>
+                                        <ColumnDefinition Width="75"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout x:Name="box01" BackgroundColor="#111111" Grid.Column="0" Grid.Row="0">
+                                        <StackLayout x:Name="enerobox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="en." x:Name="enero" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EneroTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box02" BackgroundColor="#111111" Grid.Column="1" Grid.Row="0">
+                                        <StackLayout x:Name="febrerobox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="febr." x:Name="febrero" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FebreroTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box03" BackgroundColor="#111111" Grid.Column="2" Grid.Row="0">
+                                        <StackLayout x:Name="marzobox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="mzo." x:Name="marzo" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MarzoTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box04" BackgroundColor="#111111" Grid.Column="3" Grid.Row="0">
+                                        <StackLayout x:Name="abrilbox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="abr." x:Name="abril" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AbrilTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box05" BackgroundColor="#111111" Grid.Column="0" Grid.Row="1">
+                                        <StackLayout x:Name="mayobox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="my." x:Name="mayo" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MayoTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box06" BackgroundColor="#111111" Grid.Column="1" Grid.Row="1">
+                                        <StackLayout x:Name="juniobox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="jun." x:Name="junio" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="JunioTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box07" BackgroundColor="#111111" Grid.Column="2" Grid.Row="1">
+                                        <StackLayout x:Name="juliobox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="jul." x:Name="julio" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="JulioTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box08" BackgroundColor="#111111" Grid.Column="3" Grid.Row="1">
+                                        <StackLayout x:Name="agostobox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="ag." x:Name="agosto" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AgostoTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box09" BackgroundColor="#111111" Grid.Column="0" Grid.Row="2">
+                                        <StackLayout x:Name="septiembrebox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="sept." x:Name="septiembre" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SeptiembreTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box10" BackgroundColor="#111111" Grid.Column="1" Grid.Row="2">
+                                        <StackLayout x:Name="octubrebox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="oct." x:Name="octubre" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OctubreTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box11" BackgroundColor="#111111" Grid.Column="2" Grid.Row="2">
+                                        <StackLayout x:Name="noviembrebox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="nov." x:Name="noviembre" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NoviembreTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="box12" BackgroundColor="#111111" Grid.Column="3" Grid.Row="2">
+                                        <StackLayout x:Name="diciembrebox" BackgroundColor="#FFFFFF" Margin="1" VerticalOptions="FillAndExpand">
+                                            <Label Text="dic." x:Name="diciembre" Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold" TextColor="#000000"/>
+                                        </StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="DiciembreTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                </Grid>
+
+                                <StackLayout BackgroundColor="#111111" Padding="1" x:Name="nota" IsVisible="False">
+
+                                    <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="#465173">
+                                        <Label Text="Nota: " FontAttributes="Bold" TextColor="#FFFFFF"/>
+                                        <Label x:Name="notatexto" TextColor="#FFFFFF"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+
+
+                    <Button x:Name="btntransferir" IsEnabled="False" Text="Realizar Transferencia" Clicked="btntransferir_Clicked" Margin="0,15,0,50"/>
+                </StackLayout>
+
+            </StackLayout>
+            
+        </ScrollView>
+
+
+
+
+        <Button Clicked="btnvolver_Clicked"
+                x:Name="btnvolver"
+                Text="VOLVER"
+                BackgroundColor="#9297A6"
+                TextColor="#F2F2F2"/>
+
+    </StackLayout>
+</ContentPage>
