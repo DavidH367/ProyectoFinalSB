@@ -10,7 +10,6 @@ namespace ProyectoFinal.Api
 {
     public class ServicioApi
     {
-        //private static readonly string URL_SITIOS = "https://pm2examen2.000webhostapp.com/apiproyecto/";
         private static readonly string URL_SITIOS = "https://starbb.000webhostapp.com/apimovil/";
         private static HttpClient client = new HttpClient();
 
@@ -40,7 +39,6 @@ namespace ProyectoFinal.Api
         public static async Task<Servicio> GetSingleServicio(int id)
         {
             List<Servicio> Servicio = new List<Servicio>();
-
             try
             {
                 var uri = new Uri(URL_SITIOS + "listasingleservicio.php?id="+id);

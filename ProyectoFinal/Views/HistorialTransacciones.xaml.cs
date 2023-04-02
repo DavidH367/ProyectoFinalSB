@@ -89,7 +89,7 @@ namespace ProyectoFinal.Views
             {
                 var date = lista[i].Fecha;
                 date = date.Substring(0, 10);
-                var dolar = await App.DBase.obtenerPrecioDolar(date);
+                //var dolar = await App.DBase.obtenerPrecioDolar(date);
 
                 detalle.moneda = pcuenta.Moneda;
                 
@@ -145,12 +145,12 @@ namespace ProyectoFinal.Views
                 {
                     if (pcuenta.Moneda == "HNL")
                     {
-                        lista[i].Valor = lista[i].Valor * dolar.Precio; // transferencia fue en dolares
+                        lista[i].Valor = lista[i].Valor/* * dolar.Precio*/; // transferencia fue en dolares
                         lista[i].Moneda = "HNL";
                     }
                     else
                     {
-                        lista[i].Valor = lista[i].Valor / dolar.Compra; // transferencia fue en lempiras
+                        lista[i].Valor = lista[i].Valor/* / dolar.Compra*/; // transferencia fue en lempiras
                         lista[i].Moneda = "USD";
                     }
                 }

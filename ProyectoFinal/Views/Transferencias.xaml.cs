@@ -17,14 +17,14 @@ namespace ProyectoFinal.Views
     {
         Usuario pusuario;
         Cuenta pcuenta;
-        Dolar pdolar;
+        //Dolar pdolar;
 
-        public Transferencias(Usuario usuario, Dolar dolar)
+        public Transferencias(Usuario usuario/*, Dolar dolar*/)
         {
             InitializeComponent();
 
             pusuario = usuario;
-            pdolar = dolar;
+            //pdolar = dolar;
 
             //Enableds
             cuentaa.IsEnabled = false;
@@ -37,13 +37,13 @@ namespace ProyectoFinal.Views
             valorconversion.Text = "0.00";
         }
 
-        public Transferencias(Usuario usuario, Cuenta cuenta, Dolar dolar)
+        public Transferencias(Usuario usuario, Cuenta cuenta/*, Dolar dolar*/)
         {
             InitializeComponent();
 
             pusuario = usuario;
             pcuenta = cuenta;
-            pdolar = dolar;
+            //pdolar = dolar;
 
             codigocuenta.Text = cuenta.CodigoCuenta;
             moneda.Text = cuenta.Moneda;
@@ -127,11 +127,13 @@ namespace ProyectoFinal.Views
                     {
                         if(pcuenta.Moneda == "HNL")
                         {
-                            cuenta.Saldo += double.Parse(monto.Text)/pdolar.Compra;
+                            cuenta.Saldo += double.Parse(monto.Text);
+                                //pdolar.Compra;
                         }
                         else
                         {
-                            cuenta.Saldo += double.Parse(monto.Text)*pdolar.Precio;
+                            cuenta.Saldo += double.Parse(monto.Text);
+                            //*pdolar.Precio;
                         }
                     }
 
@@ -178,7 +180,7 @@ namespace ProyectoFinal.Views
 
                             if (chkcorreo.IsChecked) { enviarcorreo(debitante, acreditante, pcuenta, cuenta, transferencia); }
                             
-                            await Navigation.PushAsync(new Tablero(pusuario, pdolar));
+                            await Navigation.PushAsync(new Tablero(pusuario/*, pdolar*/));
                         }
                     }
                 }
@@ -189,7 +191,7 @@ namespace ProyectoFinal.Views
 
         private async void btnscuenta_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Cuentas(pusuario, 1, pdolar)); //1 para ocultar boton volver (1es solamente la vista de seleccion de cuentas)
+            await Navigation.PushAsync(new Cuentas(pusuario, 1 /*, pdolar*/)); //1 para ocultar boton volver (1es solamente la vista de seleccion de cuentas)
         }
 
         #region Enviar e-mail
@@ -206,7 +208,7 @@ namespace ProyectoFinal.Views
                 mail.From = new MailAddress("starbankteam@gmail.com");
                 mail.To.Add(usuariod.Email);
                 mail.Subject = "STARBANK | Código de verificación";
-                mail.Body = "<html> <Body> <h1>Comprobante de Transacción</h1> <br><br> <h3>Cambio del dólar, hoy "+obtenerFecha((await UsuarioApi.GetFechaServidor()).Substring(0, 10)) +"</h3> <p>Compra: <b>"+pdolar.Compra+ "</b> | Venta: <b>" + pdolar.Venta + "</b></p> <br><br> <p>Cliente: <b>" + usuariod.NombreCompleto+ "</b></p> <br> <p>Cuenta Saliente: <b>" + cuentad.CodigoCuenta + "</b></p> <br> <p>Cuenta Entrante: <b>" + cuentaa.CodigoCuenta + "</b></p> <br><br> <h3>MONTO DE LA TRANSFERENCIA: "+cuentad.Moneda+ valortransferencia +"</h3><br><br><b>Nota del debitante: </b><p>"+transferencia.Comentario+"</p></Body> </html>";
+                mail.Body = "<html> <Body> <h1>Comprobante de Transacción</h1> <br><br> <h3>Cambio del dólar, hoy "+obtenerFecha((await UsuarioApi.GetFechaServidor()).Substring(0, 10)) +"</h3> <p>Compra: <b> </b></p> <br><br> <p>Cliente: <b>" + usuariod.NombreCompleto+ "</b></p> <br> <p>Cuenta Saliente: <b>" + cuentad.CodigoCuenta + "</b></p> <br> <p>Cuenta Entrante: <b>" + cuentaa.CodigoCuenta + "</b></p> <br><br> <h3>MONTO DE LA TRANSFERENCIA: "+cuentad.Moneda+ valortransferencia +"</h3><br><br><b>Nota del debitante: </b><p>"+transferencia.Comentario+"</p></Body> </html>";
                 mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.Host = "smtp.gmail.com";
@@ -231,12 +233,14 @@ namespace ProyectoFinal.Views
             {
                 if (pcuenta.Moneda == "HNL")
                 {
-                    string valor = string.Format("{0:C}", (double.Parse(monto.Text) / pdolar.Compra));
+                    string valor = string.Format("{0:C}", (double.Parse(monto.Text)));
+                        // pdolar.Compra)); 
                     valorconversion.Text = valor.Replace("$", string.Empty);
                 }
                 else
                 {
-                    string valor = string.Format("{0:C}", (double.Parse(monto.Text) * pdolar.Precio));
+                    string valor = string.Format("{0:C}", (double.Parse(monto.Text)));
+                        //* pdolar.Precio));;
                     valorconversion.Text = valor.Replace("$", string.Empty);
                 }
             }

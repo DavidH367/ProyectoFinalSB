@@ -17,7 +17,7 @@ namespace ProyectoFinal.Views
     public partial class Cuentas : ContentPage
     {
         Usuario pusuario;
-        Dolar pdolar;
+        //Dolar pdolar;
         int operacion = 0;
 
         Models.Servicio pservicio;
@@ -26,14 +26,14 @@ namespace ProyectoFinal.Views
         //1 seleccionar cuenta para redirigir a la pantalla Transferencias
         //2 seleccionar cuenta para redirigir a la pantalla Servicio
 
-        public Cuentas(Usuario usuario, Dolar dolar)
+        public Cuentas(Usuario usuario/*, Dolar dolar*/)
         {
             InitializeComponent();
             pusuario = usuario;
-            pdolar = dolar;
+            //pdolar = dolar;
         }
 
-        public Cuentas(Usuario usuario, int op, Dolar dolar)
+        public Cuentas(Usuario usuario, int op/*, Dolar dolar*/)
         {
             InitializeComponent();
             pusuario = usuario;
@@ -41,10 +41,10 @@ namespace ProyectoFinal.Views
             btnvolver.IsVisible = false;
             btncrearcuenta.IsVisible = true;
 
-            pdolar = dolar;
+            //pdolar = dolar;
         }
 
-        public Cuentas(Usuario usuario, int op, Dolar dolar, Models.Servicio servicio)
+        public Cuentas(Usuario usuario, int op/*, Dolar dolar*/, Models.Servicio servicio)
         {
             InitializeComponent();
             pusuario = usuario;
@@ -53,7 +53,7 @@ namespace ProyectoFinal.Views
             btncrearcuenta.IsVisible = true;
             pservicio = servicio;
 
-            pdolar = dolar;
+           // pdolar = dolar;
         }
 
         protected override bool OnBackButtonPressed()
@@ -63,7 +63,7 @@ namespace ProyectoFinal.Views
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Tablero(pusuario, pdolar));
+            await Navigation.PushAsync(new Tablero(pusuario/*, pdolar*/));
         }
 
         protected override async void OnAppearing()
@@ -128,15 +128,15 @@ namespace ProyectoFinal.Views
 
             if (operacion == 0)
             {
-                await Navigation.PushAsync(new AdministracionCuenta(cuenta, pusuario, pdolar));
+                await Navigation.PushAsync(new AdministracionCuenta(cuenta, pusuario/*, pdolar*/));
             }
             else if (operacion == 1)
             {
-                await Navigation.PushAsync(new Transferencias(pusuario, cuenta, pdolar));
+                await Navigation.PushAsync(new Transferencias(pusuario, cuenta /*, pdolar*/));
             }
             else if (operacion == 2)
             {
-                await Navigation.PushAsync(new Servicio(pusuario, pservicio, pdolar, cuenta));
+                await Navigation.PushAsync(new Servicio(pusuario, pservicio /*, pdolar*/, cuenta));
             }
         }
     }

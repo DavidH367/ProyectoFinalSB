@@ -18,15 +18,15 @@ namespace ProyectoFinal.Views
     {
         Cuenta pcuenta;
         Usuario pusuario;
-        Dolar pdolar;
+        //Dolar pdolar;
 
-        public AdministracionCuenta(Cuenta cuenta, Usuario usuario, Dolar dolar)
+        public AdministracionCuenta(Cuenta cuenta, Usuario usuario/*, Dolar dolar*/)
         {
             InitializeComponent();
 
             pcuenta = cuenta;
             pusuario = usuario;
-            pdolar = dolar;
+           //pdolar = dolar;
         }
 
         protected override bool OnBackButtonPressed()
@@ -36,7 +36,7 @@ namespace ProyectoFinal.Views
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Tablero(pusuario, pdolar));
+            await Navigation.PushAsync(new Tablero(pusuario/*, pdolar*/));
         }
 
         protected override async void OnAppearing()
@@ -61,7 +61,7 @@ namespace ProyectoFinal.Views
             {
                 var date = lista[i].Fecha;
                 date = date.Substring(0, 10);
-                var dolar = await App.DBase.obtenerPrecioDolar(date);
+                //var dolar = await App.DBase.obtenerPrecioDolar(date);
 
                 //Convertir a la moneda de la cuenta
 
@@ -69,12 +69,12 @@ namespace ProyectoFinal.Views
                 {
                     if (pcuenta.Moneda == "HNL")
                     {
-                        lista[i].Valor = lista[i].Valor * dolar.Precio; // transferencia fue en dolares
+                        lista[i].Valor = lista[i].Valor/* * dolar.Precio*/; // transferencia fue en dolares
                         lista[i].Moneda = "HNL";
                     }
                     else
                     {
-                        lista[i].Valor = lista[i].Valor / dolar.Compra; // transferencia fue en lempiras
+                        lista[i].Valor = lista[i].Valor/* / dolar.Compra*/; // transferencia fue en lempiras
                         lista[i].Moneda = "USD";
                     }
                 }

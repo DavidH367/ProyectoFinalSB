@@ -23,18 +23,18 @@ namespace ProyectoFinal.Views
 
 
         Usuario pusuario;
-        Dolar pdolar;
+        //Dolar pdolar;
 
         public Perfil()
         {
             InitializeComponent();
         }
 
-        public Perfil(Usuario usuario, Dolar dolar)
+        public Perfil(Usuario usuario/*, Dolar dolar*/)
         {
             InitializeComponent();
             pusuario = usuario;
-            pdolar = dolar;
+            //pdolar = dolar;
 
             
         }
@@ -441,7 +441,7 @@ namespace ProyectoFinal.Views
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Tablero(pusuario, pdolar));
+            await Navigation.PushAsync(new Tablero(pusuario/*, pdolar*/));
         }
     }
 }

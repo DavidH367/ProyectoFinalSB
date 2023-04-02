@@ -10,7 +10,7 @@ namespace ProyectoFinal.Api
 {
     public class PagosApi
     {
-        //private static readonly string URL_SITIOS = "https://pm2examen2.000webhostapp.com/apiproyecto/";
+        
         private static readonly string URL_SITIOS = "https://starbb.000webhostapp.com/apimovil/";
         private static HttpClient client = new HttpClient();
 

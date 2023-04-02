@@ -15,7 +15,7 @@ namespace ProyectoFinal.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LogIn : ContentPage
     {
-        Dolar dolar;
+       //Dolar dolar;
        
         public LogIn()
         {
@@ -89,7 +89,7 @@ namespace ProyectoFinal.Views
                 var date = await UsuarioApi.GetFechaServidor();
                 date = date.Substring(0, 10);
                 var _dolar = await App.DBase.obtenerPrecioDolar(date);
-                dolar = _dolar;
+                //dolar = _dolar;
             }
             catch (Exception error)
             {
@@ -145,7 +145,7 @@ namespace ProyectoFinal.Views
 
                             UserDialogs.Instance.HideLoading();
 
-                            await Navigation.PushAsync(new Tablero(usuario, dolar));
+                            await Navigation.PushAsync(new Tablero(usuario/*, dolar*/));
                         }
                         else if (usuario.ContraseñaTemporal == txtcontraseña.Text)
                         {
@@ -212,7 +212,7 @@ namespace ProyectoFinal.Views
                             {
                                 if (chkrecordarc.IsChecked) { persistenciaSUsuario(1, usuario); }
                                 else { persistenciaSUsuario(2, usuario); }
-                                await Navigation.PushAsync(new Tablero(usuario, dolar));
+                                await Navigation.PushAsync(new Tablero(usuario/*, dolar*/));
                             }
                         }
                         else
@@ -261,7 +261,7 @@ namespace ProyectoFinal.Views
                             {
                                 if (chkrecordarc.IsChecked) { persistenciaSUsuario(1, usuario); }
                                 else { persistenciaSUsuario(2, usuario); }
-                                await Navigation.PushAsync(new Tablero(usuario, dolar));
+                                await Navigation.PushAsync(new Tablero(usuario/*, dolar*/));
                             }
                         }
                         else

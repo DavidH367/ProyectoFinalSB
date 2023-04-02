@@ -19,7 +19,7 @@ namespace ProyectoFinal.Views
         Usuario pusuario;
         Cuenta cuenta;
         Models.Servicio pservicio;
-        Dolar pdolar;
+        //Dolar pdolar;
         Pagos pago;
         Cuenta pcuenta;
 
@@ -31,7 +31,7 @@ namespace ProyectoFinal.Views
 
         string messeleccionado;
 
-        public Servicio(Usuario usuario, Models.Servicio servicio, Dolar dolar)
+        public Servicio(Usuario usuario, Models.Servicio servicio/*, Dolar dolar*/)
         {
             InitializeComponent();
             pusuario = usuario;
@@ -46,12 +46,12 @@ namespace ProyectoFinal.Views
             }
 
             pservicio = servicio;
-            pdolar = dolar;
+            //pdolar = dolar;
 
             calendario.IsEnabled = false;
         }
 
-        public Servicio(Usuario usuario, Models.Servicio servicio, Dolar dolar, Cuenta cuenta)
+        public Servicio(Usuario usuario, Models.Servicio servicio/*, Dolar dolar*/, Cuenta cuenta)
         {
             InitializeComponent();
             pusuario = usuario;
@@ -65,7 +65,7 @@ namespace ProyectoFinal.Views
                 btntransferir.IsEnabled = true;
             }
             pservicio = servicio;
-            pdolar = dolar;
+            //pdolar = dolar;
             pcuenta = cuenta;
 
             codigocuenta.Text = cuenta.CodigoCuenta;
@@ -81,7 +81,7 @@ namespace ProyectoFinal.Views
             UserDialogs.Instance.ShowLoading("cargando...", MaskType.Clear);
 
             monedaconversion.Text = "USD";
-            string valor = string.Format("{0:C}", (double.Parse(adebitar.Text) / pdolar.Compra));
+            string valor = string.Format("{0:C}", (double.Parse(adebitar.Text)/* / pdolar.Compra*/));
             valorconversion.Text = valor.Replace("$", string.Empty);
 
             ppagos = await PagosApi.GetPagosUsuario(pusuario.NumeroIdentidad);
@@ -171,7 +171,7 @@ namespace ProyectoFinal.Views
 
             double valor;
 
-            if(pcuenta.Moneda == "USD") { valor = double.Parse(adebitar.Text) / pdolar.Precio; }
+            if(pcuenta.Moneda == "USD") { valor = double.Parse(adebitar.Text)/* / pdolar.Precio*/; }
             else { valor = double.Parse(adebitar.Text); }
 
             Transferencia transferencia = new Transferencia
@@ -211,7 +211,7 @@ namespace ProyectoFinal.Views
                 if (await PagosApi.UpdatePago(pago))
                 {
                     await DisplayAlert("Éxito", "Pago de servicio realizado con éxito", "OK");
-                    await Navigation.PushAsync(new Tablero(pusuario, pdolar));
+                    await Navigation.PushAsync(new Tablero(pusuario/*, pdolar*/));
                 }
             }
             else
@@ -434,13 +434,13 @@ namespace ProyectoFinal.Views
             }
 
             monedaconversion.Text = "USD";
-            string valor = string.Format("{0:C}", (double.Parse(adebitar.Text) / pdolar.Compra));
+            string valor = string.Format("{0:C}", (double.Parse(adebitar.Text)/* / pdolar.Compra*/));
             valorconversion.Text = valor.Replace("$", string.Empty);
         }
 
         private async void btnscuenta_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Cuentas(pusuario, 2, pdolar, pservicio)); //2 para ocultar boton volver (1es solamente la vista de seleccion de cuentas)
+            await Navigation.PushAsync(new Cuentas(pusuario, 2,/* pdolar*/ pservicio)); //2 para ocultar boton volver (1es solamente la vista de seleccion de cuentas)
         }
 
         async void enviarcorreo(Usuario usuariod, Cuenta cuentad, Transferencia transferencia)
@@ -455,7 +455,7 @@ namespace ProyectoFinal.Views
                 mail.From = new MailAddress("starbankteam@gmail.com");
                 mail.To.Add(usuariod.Email);
                 mail.Subject = "STARBANK | Código de verificación";
-                mail.Body = "<html> <Body> <h1>Comprobante de Transacción</h1> <br><br> <h3>Cambio del dólar, hoy " + obtenerFecha((await UsuarioApi.GetFechaServidor()).Substring(0, 10)) + "</h3> <p>Compra: <b>" + pdolar.Compra + "</b> | Venta: <b>" + pdolar.Venta + "</b></p> <br><br> <p>Cliente: <b>" + usuariod.NombreCompleto + "</b></p> <br> <p>Cuenta Saliente: <b>" + cuentad.CodigoCuenta + "</b></p> <br> <p>Pago del servicio: <b>" + pservicio.Nombre + "</b></p> <br><br> <h3>MONTO DE LA TRANSFERENCIA: " + cuentad.Moneda + valortransferencia + "</h3><br><br><b>Nota del debitante: </b><p>" + transferencia.Comentario + "</p></Body> </html>";
+                mail.Body = "<html> <Body> <h1>Comprobante de Transacción</h1> <br><br> <h3>Cambio del dólar, hoy " + obtenerFecha((await UsuarioApi.GetFechaServidor()).Substring(0, 10)) + "</h3> <p>Compra: <b>         </b></p> <br><br> <p>Cliente: <b>" + usuariod.NombreCompleto + "</b></p> <br> <p>Cuenta Saliente: <b>" + cuentad.CodigoCuenta + "</b></p> <br> <p>Pago del servicio: <b>" + pservicio.Nombre + "</b></p> <br><br> <h3>MONTO DE LA TRANSFERENCIA: " + cuentad.Moneda + valortransferencia + "</h3><br><br><b>Nota del debitante: </b><p>" + transferencia.Comentario + "</p></Body> </html>";
                 mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.Host = "smtp.gmail.com";

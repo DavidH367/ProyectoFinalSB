@@ -18,26 +18,16 @@ namespace ProyectoFinal.Views
     {
         
         Usuario pusuario;
-        Dolar pdolar;
+        //Dolar pdolar;
         
 
-        public Tablero(Usuario usuario, Dolar dolar)
+        public Tablero(Usuario usuario/*, Dolar dolar*/)
         {
             InitializeComponent();
 
             pusuario = usuario;
-            pdolar = dolar;
-    
-            Console.WriteLine(pusuario.NombreCompleto.ToString());
-            //Console.WriteLine(pdolar.Precio.ToString());
-            
-           /* if (pdolar != null)
-            {
-                preciodolarc.Text = string.Format("{0:f4}", pdolar.Compra);
-                preciodolarv.Text = string.Format("{0:f4}", pdolar.Venta);
-                // acceder a las propiedades de pdolar aquí
-            }
-           */
+            //pdolar = dolar;
+               
         }
 
         protected override bool OnBackButtonPressed()
@@ -72,8 +62,16 @@ namespace ProyectoFinal.Views
             imgusuario.Source = ImageSource.FromStream(() => new System.IO.MemoryStream(pusuario.Fotografia));
             txtnombrecompleto.Text = pusuario.NombreCompleto;
             txtnombreusuario.Text = pusuario.NombreUsuario;
-            
-
+            //Console.WriteLine(pusuario.NombreCompleto.ToString());
+            //Console.WriteLine(pdolar.Compra.ToString());
+            /*
+            if (pdolar != null)
+            {
+                preciodolarc.Text = string.Format("{0:f4}", pdolar.Compra);
+                preciodolarv.Text = string.Format("{0:f4}", pdolar.Venta);
+                // acceder a las propiedades de pdolar aquí
+            }
+            */
             //preciodolarv.Text = pdolar.Compra;
 
 
@@ -94,29 +92,29 @@ namespace ProyectoFinal.Views
 
         private async void btncuentas_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Cuentas(pusuario, pdolar));
+            await Navigation.PushAsync(new Cuentas(pusuario/*, pdolar*/));
         }
 
         private async void btnservicios_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Servicios(pusuario, pdolar));
+            await Navigation.PushAsync(new Servicios(pusuario/*, pdolar*/));
         }
 
         private async void btntransferencias_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Transferencias(pusuario, pdolar));
+            await Navigation.PushAsync(new Transferencias(pusuario/*, pdolar*/));
         }
 
         private async void btncontrolp_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ControlPresupuestario(pusuario, pdolar));
+            await Navigation.PushAsync(new ControlPresupuestario(pusuario/*, pdolar*/));
         }
 
 
 
         private async void btnsoporte_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Soporte(pusuario, pdolar));
+            await Navigation.PushAsync(new Soporte(pusuario/*, pdolar*/));
         }
 
         private async void btnlogout_Clicked(object sender, EventArgs e)
@@ -125,14 +123,13 @@ namespace ProyectoFinal.Views
 
             if (respuesta) {
                 await Navigation.PushAsync(new LogIn());
-                //await Navigation.PushAsync(new LogIn());
             }
             
         }
 
         private async void perfil_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Perfil(pusuario, pdolar));
+            await Navigation.PushAsync(new Perfil(pusuario/*, pdolar*/));
         }
     }
 }

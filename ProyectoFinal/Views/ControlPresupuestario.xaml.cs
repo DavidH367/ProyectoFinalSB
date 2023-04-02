@@ -15,14 +15,14 @@ namespace ProyectoFinal.Views
     {
         Usuario pusuario;
         Cuenta pcuenta;
-        Dolar pdolar;
+        //Dolar pdolar;
 
-        public ControlPresupuestario(Usuario usuario, Dolar dolar)
+        public ControlPresupuestario(Usuario usuario/*, Dolar dolar*/)
         {
             InitializeComponent();
 
             pusuario = usuario;
-            pdolar = dolar;
+            //pdolar = dolar;
         }
 
         public ControlPresupuestario(Usuario usuario, Cuenta cuenta)
@@ -206,10 +206,10 @@ namespace ProyectoFinal.Views
                 for (int i = 0; i < lcreditos2.Count; i++) { entrado2 += await normalizarMoneda(moneda2, lcreditos2[i]); }
                 for (int i = 0; i < ldebitos2.Count; i++) { salido2 += await normalizarMoneda(moneda2, ldebitos2[i]); }
 
-                if(moneda == "USD") { entrado = entrado * pdolar.Precio; salido = salido * pdolar.Precio; }
+                if(moneda == "USD") { entrado = entrado/* * pdolar.Precio*/; salido = salido/* * pdolar.Precio*/; }
                 if (moneda2 == "USD") {
-                    entrado2 = entrado2 * pdolar.Precio;
-                    salido2 = salido2 * pdolar.Precio;
+                    entrado2 = entrado2 /** pdolar.Precio*/;
+                    salido2 = salido2 /** pdolar.Precio*/;
                 }
 
                 moneda = "HNL ";
@@ -243,7 +243,7 @@ namespace ProyectoFinal.Views
         {
             var date = transferencia.Fecha;
             date = date.Substring(0, 10);
-            var dolar = await App.DBase.obtenerPrecioDolar(date);
+            //var dolar = await App.DBase.obtenerPrecioDolar(date);
 
             if (moneda == transferencia.Moneda)
             {
@@ -253,11 +253,11 @@ namespace ProyectoFinal.Views
             {
                 if (moneda == "HNL")
                 {
-                    return transferencia.Valor * dolar.Precio; // transferencia fue en dolares
+                    return transferencia.Valor/* * dolar.Precio*/; // transferencia fue en dolares
                 }
                 else
                 {
-                    return transferencia.Valor / dolar.Compra; // transferencia fue en lempiras
+                    return transferencia.Valor/* / dolar.Compra*/; // transferencia fue en lempiras
                 }
             }
 
