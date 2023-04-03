@@ -25,22 +25,22 @@
 
                     <StackLayout Margin="0,25,0,0">
                         <Label TextColor="#FFFFFF" FontSize="20"  Text="Teléfonos"/>
-                        <Label TextColor="#FFFFFF" FontSize="20" Text="2780-9000" FontAttributes="Bold"/>
-                        <Label TextColor="#FFFFFF" FontSize="20" Text="2270-5020" FontAttributes="Bold"/>
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="9917-8756" FontAttributes="Bold"/>
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="9733-8030" FontAttributes="Bold"/>
                     </StackLayout>
 
 
 
                     <StackLayout Margin="0,25,0,0">
                         <Label TextColor="#FFFFFF" FontSize="20" Text="Línea Móvil 1"/>
-                        <Label TextColor="#FFFFFF" FontSize="20" Text="9800-9090" FontAttributes="Bold"/>
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="9825-2225" FontAttributes="Bold"/>
                     </StackLayout>
 
 
 
                     <StackLayout Margin="0,25,0,0">
                         <Label TextColor="#FFFFFF" FontSize="20" Text="Línea Móvil 2"/>
-                        <Label TextColor="#FFFFFF" FontSize="20" Text="3280-8000" FontAttributes="Bold"/>
+                        <Label TextColor="#FFFFFF" FontSize="20" Text="9559-6659" FontAttributes="Bold"/>
                     </StackLayout>
 
                 </StackLayout>

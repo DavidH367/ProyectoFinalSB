@@ -4,9 +4,9 @@
              x:Class="ProyectoFinal.Views.ControlPresupuestario">
     <StackLayout>
 
-        <StackLayout Orientation="Horizontal" BackgroundColor="#465173">
+        <StackLayout Orientation="Horizontal" BackgroundColor="#FFFFFF">
             <!-- Volver<Image/>-->
-            <Label Text="CONTROL PRESUPUESTARIO"/>
+            <Label Text="CONTROL PRESUPUESTARIO" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="20" Padding="15"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal"> 
@@ -24,22 +24,22 @@
 
             <StackLayout>
 
-                <StackLayout BackgroundColor="#465173">
-                    <Label Text="Transferencias:" TextColor="#F2F2F2"/>
+                <StackLayout BackgroundColor="#19225d">
+                    <Label Text="Transferencias:" TextColor="#F2F2F2" HorizontalOptions="CenterAndExpand" FontSize="16" Padding="5"/>
                 </StackLayout>
 
-                <StackLayout>
-                    <StackLayout>
-                        <Label Text="Dinero entrado: "/>
+                <StackLayout Margin="40, 0, 0, 0">
+                    <StackLayout >
+                        <Label Text="Dinero entrado: " FontAttributes="Bold"/>
                         <Label x:Name="txttransferenciasde"/>
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Dinero salido: "/>
+                        <Label Text="Dinero salido: " FontAttributes="Bold"/>
                         <Label x:Name="txttransferenciasds"/>
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Margin="40, 0, 0, 0">
                     <StackLayout>
                         <Label Text="Salidas: "/>
                         <Label x:Name="txttransferenciass"/>
@@ -56,20 +56,20 @@
 
             <StackLayout>
 
-                <StackLayout BackgroundColor="#465173">
-                    <Label Text="Servicios:" TextColor="#F2F2F2"/>
+                <StackLayout BackgroundColor="#19225d" >
+                    <Label Text="Servicios:" TextColor="#F2F2F2" HorizontalOptions="CenterAndExpand" FontSize="16" Padding="5"/>
                 </StackLayout>
 
-                <StackLayout>
+                <StackLayout Margin="40, 0, 0, 0">
                     <StackLayout>
-                        <Label Text="Dinero salido: "/>
+                        <Label Text="Dinero salido: " FontAttributes="Bold"/>
                         <Label x:Name="txtserviciosds"/>
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Margin="40, 0, 0, 0">
                     <StackLayout>
-                        <Label Text="Salidas: "/>
+                        <Label Text="Salidas: " FontAttributes="Bold"/>
                         <Label x:Name="txtservicioss"/>
                     </StackLayout>
                 </StackLayout>
@@ -80,20 +80,20 @@
 
             <StackLayout>
 
-                <StackLayout BackgroundColor="#465173">
-                    <Label Text="Eventos:" TextColor="#F2F2F2"/>
+                <StackLayout BackgroundColor="#19225d">
+                    <Label Text="Eventos:" TextColor="#F2F2F2" HorizontalOptions="CenterAndExpand" FontSize="16" Padding="5"/>
                 </StackLayout>
 
-                <StackLayout>
+                <StackLayout Margin="40, 0, 0, 0">
                     <StackLayout>
-                        <Label Text="Dinero salido: "/>
+                        <Label Text="Dinero salido: " FontAttributes="Bold"/>
                         <Label x:Name="txteventosds"/>
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Margin="40, 0, 0, 0">
                     <StackLayout>
-                        <Label Text="Salidas: "/>
+                        <Label Text="Salidas: " FontAttributes="Bold"/>
                         <Label x:Name="txteventoss"/>
                     </StackLayout>
                 </StackLayout>
@@ -107,28 +107,28 @@
 
         <StackLayout>
 
-            <StackLayout BackgroundColor="#465173">
-                <Label Text="TOTAL:" TextColor="#F2F2F2"/>
+            <StackLayout BackgroundColor="#19225d">
+                <Label Text="TOTAL:" TextColor="#F2F2F2" HorizontalOptions="CenterAndExpand" FontSize="16" Padding="5"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Margin="40, 0, 0, 0">
                 <StackLayout>
-                    <Label Text="Salido: "/>
+                    <Label Text="Salido: " FontAttributes="Bold"/>
                     <Label x:Name="txtdints"/>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="Entrado: "/>
+                    <Label Text="Entrado: " FontAttributes="Bold"/>
                     <Label x:Name="txtdinte"/>
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Margin="40, 0, 0, 0">
                 <StackLayout>
-                    <Label Text="Salidas: "/>
+                    <Label Text="Salidas: " FontAttributes="Bold"/>
                     <Label x:Name="txtsalidas"/>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="Entradas: "/>
+                    <Label Text="Entradas: " FontAttributes="Bold"/>
                     <Label x:Name="txtentradas"/>
                 </StackLayout>
             </StackLayout>

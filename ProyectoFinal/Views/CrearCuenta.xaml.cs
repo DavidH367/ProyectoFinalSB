@@ -93,7 +93,7 @@ namespace ProyectoFinal.Views
             string caracteres = "1234567890";
             int longitud = caracteres.Length;
             char letra;
-            int longitudContrasenia = 16;
+            int longitudContrasenia = 7;
             string contraseniaAleatoria = string.Empty;
             for (int i = 0; i < longitudContrasenia; i++)
             {

@@ -11,11 +11,15 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout BackgroundColor="#131D47">
+    <StackLayout BackgroundColor="#F8F8FF">
 
         <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="Fill">
             <!-- Volver<Image/>-->
-            <Label TextColor="#FFFFFF" Text="TABLERO" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+            <Label TextColor="#333333" Text="BIENVENIDO" FontSize="20" FontAttributes="Italic" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="1" HorizontalOptions="Fill">
+            <!-- Volver<Image/>-->
+            <Label TextColor="#333333" Text="DASHBOARD PRINCIPAL" FontSize="25" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
 
 
@@ -28,8 +32,8 @@
                 <Frame
             Margin="0,15,0,0"
             CornerRadius="100"
-            WidthRequest="150"
-            HeightRequest="150"
+            WidthRequest="220"
+            HeightRequest="180"
             HorizontalOptions="Center"
             Padding="0"
             HasShadow="True">
@@ -43,9 +47,9 @@
 
 
 
-                <StackLayout Margin="0,15,0,0" BackgroundColor="#465173" Padding="5">
+                <StackLayout Margin="0,15,0,40" BackgroundColor="#465173" Padding="5">
 
-                    <Label x:Name="txtnombrecompleto" HorizontalOptions="Center" TextColor="#FFFFFF" FontSize="18"/>
+                    <Label x:Name="txtnombrecompleto" HorizontalOptions="Center" TextColor="#FFFFFF" FontSize="18" FontAttributes="Bold"/>
 
 
 
@@ -55,62 +59,28 @@
 
 
 
-                <StackLayout Margin="0,25,0,25">
-                    <Label Text="Precio del dólar estadounidense" HorizontalOptions="Center" TextColor="#FFFFFF" FontAttributes="Bold"/>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-
-                        <Frame CornerRadius="10" HorizontalOptions="Center">
-                            <StackLayout>
-                                <Label Text="Compra"/>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="HNL " FontAttributes="Bold"/>
-                                    <Label x:Name="preciodolarc"/>
-                                  
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-
-                        <Frame CornerRadius="10" HorizontalOptions="Center">
-                            <StackLayout>
-                                <Label Text="Venta"/>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="HNL " FontAttributes="Bold"/>
-                                    <Label x:Name="preciodolarv"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-
-                    </StackLayout>
-                </StackLayout>
-
-
-
                 <Button Text="Administración de Cuentas"
-                        Margin="20,0,20,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
+                        Margin="20,0,20,0" BackgroundColor="#7e7e7e" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
                 Clicked="btncuentas_Clicked"/>
 
                 <Button Text="Pagar Servicios"
-                        Margin="20,5,20,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
+                        Margin="20,5,20,0" BackgroundColor="#7e7e7e" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
                         Clicked="btnservicios_Clicked"/>
                 
                 <Button Text="Transferencias"
-                        Margin="20,5,20,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
+                        Margin="20,5,20,0" BackgroundColor="#7e7e7e" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
                         Clicked="btntransferencias_Clicked"/>
                 
                 <Button Text="Control Presupuestario"
-                        Margin="20,5,20,0" BackgroundColor="#9297A6" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
+                        Margin="20,5,20,0" BackgroundColor="#7e7e7e" TextColor="#FFFFFF" FontAttributes="Bold" CornerRadius="10"
                         Clicked="btncontrolp_Clicked"/>
 
-
-
-                
 
             </StackLayout>
             
         </ScrollView>
 
-        <StackLayout HeightRequest="50" Orientation="Horizontal" BackgroundColor="#9297A6" Padding="5" VerticalOptions="EndAndExpand">
+        <StackLayout HeightRequest="50" Orientation="Horizontal" BackgroundColor="#465173" Padding="5" VerticalOptions="EndAndExpand">
             <ImageButton Clicked="btnsoporte_Clicked"
                          
                          Source="customerservice.png"

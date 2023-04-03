@@ -65,15 +65,7 @@ namespace ProyectoFinal.Views
 
         private async void goSingUp2(object sender, EventArgs e)
         {
-            /*try
-            {
-                var result = await App.DBase.UsuarioDeleteAll();
-            }
-            catch (Exception error)
-            {
-
-            }*/
-
+            
             try
             {
                 if (FileFotoBytes == null)
@@ -109,10 +101,7 @@ namespace ProyectoFinal.Views
                 Console.WriteLine(error);
                 return;
             }
-
-            
-            //bool apiresult = await UsuarioApi.CreateUsuario(usuario);
-
+          
             //await Navigation.PushAsync(new SignUp2(usuario));
         }
 
@@ -126,7 +115,6 @@ namespace ProyectoFinal.Views
                 SaveToAlbum = true,
                 CompressionQuality = 10
             });
-            // await DisplayAlert("Path directorio", FileFoto.Path, "OK");
 
 
             if (FileFoto != null)
@@ -142,8 +130,7 @@ namespace ProyectoFinal.Views
                     Stream stream = FileFoto.GetStream();
                     stream.CopyTo(memory);
                     FileFotoBytes = memory.ToArray();
-                    /*string base64Val = Convert.ToBase64String(FileFotoBytes);
-                    FileFotoBytes = Convert.FromBase64String(base64Val);*/
+                    
                 }
             }
         }
@@ -177,8 +164,7 @@ namespace ProyectoFinal.Views
                 Stream stream = FileFoto.GetStream();
                 stream.CopyTo(memory);
                 FileFotoBytes = memory.ToArray();
-                /*string base64Val = Convert.ToBase64String(FileFotoBytes);
-                FileFotoBytes = Convert.FromBase64String(base64Val);*/
+                
             }
 
             /*Imagen.Source = ImageSource.FromStream(() =>
@@ -188,19 +174,6 @@ namespace ProyectoFinal.Views
                 return stream;
             });*/
         }
-
-        /*
-        private async void ImageButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new LogIn());
-        }
-        */
-
-
-
-
-
-
 
         //Aqui esta la parte del segundo SignUp
        
@@ -263,7 +236,7 @@ namespace ProyectoFinal.Views
             }
 
             btnregistrar.IsEnabled = false;
-            //enviarcorreo();
+            //enviarcorreo(usuario);
 
             Usuario usuario = new Usuario
             {
@@ -275,20 +248,13 @@ namespace ProyectoFinal.Views
                 NumeroIdentidad = txtnumeroidentidad.Text,
                 NombreUsuario = txtusuario.Text,
                 Email = txtemail.Text,
-                Contraseña = txtcontraseña.Text
+                Contraseña = txtcontraseña.Text,
+                CodigoVerificacion = ""
 
-        };
-            /*Usuario usuario = new Usuario{
-              
-                NumeroIdentidad = txtnumeroidentidad.Text;
-                NombreUsuario = txtusuario.Text;
-                Email = txtemail.Text;
-                Contraseña = txtcontraseña.Text;
-
-            };*/
+            };
 
             //Añadimos Codigo Temporal a Usuario
-            //usuariocompleto.CodigoVerificacion = CodigoAleatorio(1);
+            //usuario.CodigoVerificacion = CodigoAleatorio(1);
 
             //Validacion que el id de cliente no venga repetido y se asigna
             bool ciclo = true;
@@ -338,9 +304,6 @@ namespace ProyectoFinal.Views
                 await DisplayAlert("Error", "Se produjo un error al enviarte el correo", "OK");
             }
 
-            /*bool estado = await UsuarioApi.CreateUsuario(usuariocompleto);
-            if (estado) { await DisplayAlert("Aviso", "Usuario adicionado con éxito", "OK"); }*/
-
         }
 
         static bool validateEmail(string email)
@@ -365,7 +328,6 @@ namespace ProyectoFinal.Views
             //op = 2 id cliente
 
             Random rdn = new Random();
-            //string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$#@";
 
             string caracteres = "";
             int longitudContrasenia = 0;
@@ -417,7 +379,7 @@ namespace ProyectoFinal.Views
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                mail.From = new MailAddress("starbankteam@gmail.com");
+                mail.From = new MailAddress("sbstarbank123@gmail.com");
                 mail.To.Add(usuariocompleto.Email);
                 mail.Subject = "STARBANK | Código de verificación";
                 mail.Body = "¡Hola <b>" + usuariocompleto.NombreCompleto + "!</b> <br> Gracias por elegir STARBANK. Este es tu código de verificación: <br> <h3>" + usuariocompleto.CodigoVerificacion + "</h3>";
@@ -426,7 +388,7 @@ namespace ProyectoFinal.Views
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("starbankteam@gmail.com", "ptkyllujqfluvnls");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("sbstarbank123@gmail.com", "yqunobanjkefbehh");
 
                 SmtpServer.Send(mail);
             }

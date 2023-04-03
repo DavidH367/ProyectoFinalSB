@@ -16,13 +16,11 @@ namespace ProyectoFinal.Views
     public partial class Soporte : ContentPage
     {
         Usuario pusuario;
-        //Dolar pdolar;
 
-        public Soporte(Usuario usuario/*, Dolar dolar*/)
+        public Soporte(Usuario usuario)
         {
             InitializeComponent();
             pusuario = usuario;
-            //pdolar = dolar;
         }
 
         private async void btncorreo_Clicked(object sender, EventArgs e)
@@ -45,7 +43,7 @@ namespace ProyectoFinal.Views
         public async Task SendEmail()
         {
             List<string> correocontacto = new List<string>();
-            correocontacto.Add("starbankteam@gmail.com");
+            correocontacto.Add("sbstarbank123@gmail.com");
 
             try
             {

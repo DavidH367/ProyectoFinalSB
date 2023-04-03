@@ -17,16 +17,14 @@ namespace ProyectoFinal.Views
     public partial class Servicios : ContentPage
     {
         Usuario pusuario;
-        //Dolar pdolar;
         List<Models.Servicio> pservicios = new List<Models.Servicio>();
         List<Models.Servicio> eventos = new List<Models.Servicio>();
 
-        public Servicios(Usuario usuario/*, Dolar dolar*/)
+        public Servicios(Usuario usuario)
         {
             InitializeComponent();
 
             pusuario = usuario;
-            //pdolar = dolar;
 
         }
 
@@ -60,12 +58,12 @@ namespace ProyectoFinal.Views
 
         private async void TapGestureRecognizer_agua(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Servicio(pusuario, pservicios[1]/*, pdolar*/));
+            await Navigation.PushAsync(new Servicio(pusuario, pservicios[1]));
         }
 
         private async void TapGestureRecognizer_energia(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Servicio(pusuario, pservicios[0]/*, pdolar*/));
+            await Navigation.PushAsync(new Servicio(pusuario, pservicios[0]));
         }
 
         private async void ListPromociones_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -75,7 +73,7 @@ namespace ProyectoFinal.Views
             if(_evento != null)
             {
                 Models.Servicio evento = _evento as Models.Servicio;
-                await Navigation.PushAsync(new Servicio(pusuario, evento/*, pdolar*/));
+                await Navigation.PushAsync(new Servicio(pusuario, evento));
             }
 
             //Models.Servicio evento = (Models.Servicio)e.CurrentSelection[0];

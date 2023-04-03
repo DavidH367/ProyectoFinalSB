@@ -17,14 +17,13 @@ namespace ProyectoFinal.Views
     {
         Usuario pusuario;
         Cuenta pcuenta;
-        //Dolar pdolar;
 
-        public Transferencias(Usuario usuario/*, Dolar dolar*/)
+        public Transferencias(Usuario usuario)
         {
             InitializeComponent();
 
             pusuario = usuario;
-            //pdolar = dolar;
+       
 
             //Enableds
             cuentaa.IsEnabled = false;
@@ -37,13 +36,13 @@ namespace ProyectoFinal.Views
             valorconversion.Text = "0.00";
         }
 
-        public Transferencias(Usuario usuario, Cuenta cuenta/*, Dolar dolar*/)
+        public Transferencias(Usuario usuario, Cuenta cuenta)
         {
             InitializeComponent();
 
             pusuario = usuario;
             pcuenta = cuenta;
-            //pdolar = dolar;
+            
 
             codigocuenta.Text = cuenta.CodigoCuenta;
             moneda.Text = cuenta.Moneda;
@@ -128,12 +127,10 @@ namespace ProyectoFinal.Views
                         if(pcuenta.Moneda == "HNL")
                         {
                             cuenta.Saldo += double.Parse(monto.Text);
-                                //pdolar.Compra;
                         }
                         else
                         {
                             cuenta.Saldo += double.Parse(monto.Text);
-                            //*pdolar.Precio;
                         }
                     }
 
@@ -147,7 +144,6 @@ namespace ProyectoFinal.Views
 
                         if (resultado2 == 1)
                         {
-                            //await App.DBase.TransferenciaSave(transferencia);
                             await TransferenciaApi.CreateTransferencia(transferencia);
 
 
@@ -191,7 +187,7 @@ namespace ProyectoFinal.Views
 
         private async void btnscuenta_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Cuentas(pusuario, 1 /*, pdolar*/)); //1 para ocultar boton volver (1es solamente la vista de seleccion de cuentas)
+            await Navigation.PushAsync(new Cuentas(pusuario, 1 )); //1 para ocultar boton volver (1es solamente la vista de seleccion de cuentas)
         }
 
         #region Enviar e-mail
@@ -205,16 +201,16 @@ namespace ProyectoFinal.Views
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                mail.From = new MailAddress("starbankteam@gmail.com");
-                mail.To.Add(usuariod.Email);
-                mail.Subject = "STARBANK | Código de verificación";
+                mail.From = new MailAddress("sbstarbank123@gmail.com");
+                mail.To.Add(pusuario.Email);
+                mail.Subject = "STARBANK | Transferencia";
                 mail.Body = "<html> <Body> <h1>Comprobante de Transacción</h1> <br><br> <h3>Cambio del dólar, hoy "+obtenerFecha((await UsuarioApi.GetFechaServidor()).Substring(0, 10)) +"</h3> <p>Compra: <b> </b></p> <br><br> <p>Cliente: <b>" + usuariod.NombreCompleto+ "</b></p> <br> <p>Cuenta Saliente: <b>" + cuentad.CodigoCuenta + "</b></p> <br> <p>Cuenta Entrante: <b>" + cuentaa.CodigoCuenta + "</b></p> <br><br> <h3>MONTO DE LA TRANSFERENCIA: "+cuentad.Moneda+ valortransferencia +"</h3><br><br><b>Nota del debitante: </b><p>"+transferencia.Comentario+"</p></Body> </html>";
                 mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("starbankteam@gmail.com", "ptkyllujqfluvnls");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("sbstarbank123@gmail.com", "yqunobanjkefbehh");
 
                 SmtpServer.Send(mail);
             }
@@ -234,13 +230,11 @@ namespace ProyectoFinal.Views
                 if (pcuenta.Moneda == "HNL")
                 {
                     string valor = string.Format("{0:C}", (double.Parse(monto.Text)));
-                        // pdolar.Compra)); 
                     valorconversion.Text = valor.Replace("$", string.Empty);
                 }
                 else
                 {
                     string valor = string.Format("{0:C}", (double.Parse(monto.Text)));
-                        //* pdolar.Precio));;
                     valorconversion.Text = valor.Replace("$", string.Empty);
                 }
             }

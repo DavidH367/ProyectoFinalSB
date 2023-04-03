@@ -23,18 +23,16 @@ namespace ProyectoFinal.Views
 
 
         Usuario pusuario;
-        //Dolar pdolar;
 
         public Perfil()
         {
             InitializeComponent();
         }
 
-        public Perfil(Usuario usuario/*, Dolar dolar*/)
+        public Perfil(Usuario usuario)
         {
             InitializeComponent();
             pusuario = usuario;
-            //pdolar = dolar;
 
             
         }
@@ -376,7 +374,6 @@ namespace ProyectoFinal.Views
                 SaveToAlbum = true,
                 CompressionQuality = 10
             });
-            // await DisplayAlert("Path directorio", FileFoto.Path, "OK");
 
 
             if (FileFoto != null)
@@ -392,19 +389,14 @@ namespace ProyectoFinal.Views
                     Stream stream = FileFoto.GetStream();
                     stream.CopyTo(memory);
                     FileFotoBytes = memory.ToArray();
-                    /*string base64Val = Convert.ToBase64String(FileFotoBytes);
-                    FileFotoBytes = Convert.FromBase64String(base64Val);*/
+              
                 }
             }
         }
 
         private async void seleccionarfoto()
         {
-            /*if (!CrossMedia.Current.IsPickPhotoSupported)
-            {
-                await DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
-                return;
-            }*/
+           
 
             FileFoto = await Plugin.Media.CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
             {
@@ -427,21 +419,15 @@ namespace ProyectoFinal.Views
                 Stream stream = FileFoto.GetStream();
                 stream.CopyTo(memory);
                 FileFotoBytes = memory.ToArray();
-                /*string base64Val = Convert.ToBase64String(FileFotoBytes);
-                FileFotoBytes = Convert.FromBase64String(base64Val);*/
+                
             }
 
-            /*Imagen.Source = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });*/
+           
         }
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Tablero(pusuario/*, pdolar*/));
+            await Navigation.PushAsync(new Tablero(pusuario));
         }
     }
 }

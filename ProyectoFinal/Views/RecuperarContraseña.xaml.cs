@@ -42,8 +42,7 @@ namespace ProyectoFinal.Views
             var usuario = await App.DBase.obtenerUsuario(3, txtemail.Text);
             if (usuario != null)
             {
-                if(usuario.CodigoVerificacion == "")
-                {
+                
                     usuario.ContraseñaTemporal = CodigoAleatorio();
 
                     UserDialogs.Instance.ShowLoading("Procesando solicitud", MaskType.Clear);
@@ -53,11 +52,9 @@ namespace ProyectoFinal.Views
                     UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Envío exitoso", "Revisa tu bandeja de entrada y sigue las instrucciones para habilitar tu nueva contraseña.", "OK");
                     await Navigation.PopAsync();
-                }
-                else
-                {
-                    await DisplayAlert("Aviso", "Eres un usuario nuevo, debes iniciar sesión por lo menos una vez para cambiar tu contraseña.", "OK");
-                }
+                    usuario.CodigoVerificacion = "";
+
+               
             }
             else
             {
@@ -91,7 +88,7 @@ namespace ProyectoFinal.Views
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                mail.From = new MailAddress("starbankteam@gmail.com");
+                mail.From = new MailAddress("sbstarbank123@gmail.com");
                 mail.To.Add(user.Email);
                 mail.Subject = "STARBANK | Código de verificación";
                 mail.Body = "<html><body><p>¡Hola <b>" + user.NombreCompleto + "!</b></p><br><br><p>Gracias por elegir STARBANK.</p><br><br><p>Esta es tu contraseña temporal: <b>"+user.ContraseñaTemporal+"<b></p><br><p>Con ella ingresarás a la aplicación STARBANK y se te solicitará que escribas una contraseña nueva la cual <b>será tu nueva contraseña.</b></p><br<br><p>Si tú no has solicitado este cambio de contraseña puedes ignorar este correo electrónico.</p></body></html>";
@@ -100,7 +97,7 @@ namespace ProyectoFinal.Views
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("starbankteam@gmail.com", "ptkyllujqfluvnls");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("sbstarbank123@gmail.com", "yqunobanjkefbehh");
 
                 SmtpServer.Send(mail);
             }

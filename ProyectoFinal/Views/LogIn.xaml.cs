@@ -15,12 +15,11 @@ namespace ProyectoFinal.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LogIn : ContentPage
     {
-       //Dolar dolar;
        
         public LogIn()
         {
             InitializeComponent();
-
+            var image = new Image { Source = "logosb.png" };
         }
 
         protected async override void OnAppearing()
@@ -89,7 +88,6 @@ namespace ProyectoFinal.Views
                 var date = await UsuarioApi.GetFechaServidor();
                 date = date.Substring(0, 10);
                 var _dolar = await App.DBase.obtenerPrecioDolar(date);
-                //dolar = _dolar;
             }
             catch (Exception error)
             {
@@ -145,7 +143,7 @@ namespace ProyectoFinal.Views
 
                             UserDialogs.Instance.HideLoading();
 
-                            await Navigation.PushAsync(new Tablero(usuario/*, dolar*/));
+                            await Navigation.PushAsync(new Tablero(usuario));
                         }
                         else if (usuario.ContraseñaTemporal == txtcontraseña.Text)
                         {
@@ -212,7 +210,7 @@ namespace ProyectoFinal.Views
                             {
                                 if (chkrecordarc.IsChecked) { persistenciaSUsuario(1, usuario); }
                                 else { persistenciaSUsuario(2, usuario); }
-                                await Navigation.PushAsync(new Tablero(usuario/*, dolar*/));
+                                await Navigation.PushAsync(new Tablero(usuario));
                             }
                         }
                         else
@@ -220,54 +218,57 @@ namespace ProyectoFinal.Views
                             await DisplayAlert("Contraseña Incorrecta", "La contraseña que ha ingresado no coincide con la de su usuario.", "OK");
                         }
                     
-                    
+                    /*
                         if (usuario.Contraseña == txtcontraseña.Text)
                         {
-                            bool ciclo = true;
-                            while (ciclo)
-                            {
-                                //var promptConfig = new PromptConfig();
-                               /* promptConfig.Title = "Código de Verificación";
-                                promptConfig.Message = "A continuación ingrese el código que se envió a su correo electrónico:";
-                                promptConfig.InputType = InputType.Name;
-                                promptConfig.OkText = "Entrar";
-                                promptConfig.CancelText = "Volver";
-                                promptConfig.MaxLength = 6;
-                               */
-                                //promptConfig.IsCancellable = true;
+                        bool ciclo = true;
+                        while (ciclo)
+                        {
+                            var promptConfig = new PromptConfig();
+                            promptConfig.Title = "Código de Verificación";
+                            promptConfig.Message = "A continuación ingrese el código que se envió a su correo electrónico:";
+                            promptConfig.InputType = InputType.Name;
+                            promptConfig.OkText = "Entrar";
+                            promptConfig.CancelText = "Volver";
+                            promptConfig.MaxLength = 6;
 
-                               // var result = await UserDialogs.Instance.PromptAsync(promptConfig);
+                            promptConfig.IsCancellable = true;
 
-                                
-                                    
-                                        usuario.CodigoVerificacion = "";
-                                        UserDialogs.Instance.ShowLoading("Actualizando datos", MaskType.Clear);
-                                        await App.DBase.UsuarioSave(usuario);
-                                        await UsuarioApi.UpdateUsuario(usuario);
-                                        UserDialogs.Instance.HideLoading();
-
-                                        //await DisplayAlert("Bienvenido", "Acabas de aperturar tu cuenta exitósamente.\n\nSerás redirigido a tu menú dentro de la aplicación.", "¡Gracias!");
-                                        //Aqui pude haber creado una bool bandera pero poniendo ciclo en flase cumplo la funcion del break y de saber que ya pase por aqui
-                                       ciclo = false;
-                                    
-                                
-                                //string result = await DisplayPromptAsync("Código de Verificación", "A continuación ingrese el código que se envió a su correo electrónico:", "Entrar", "Volver", maxLength: 6);  
-                            }
+                           //var result = await UserDialogs.Instance.PromptAsync(promptConfig);
 
 
 
+                                    usuario.CodigoVerificacion = "";
+                                    UserDialogs.Instance.ShowLoading("Actualizando datos", MaskType.Clear);
+                                    await App.DBase.UsuarioSave(usuario);
+                                    await UsuarioApi.UpdateUsuario(usuario);
+                                    UserDialogs.Instance.HideLoading();
 
+                                    await DisplayAlert("Bienvenido", "Acabas de aperturar tu cuenta exitósamente.\n\nSerás redirigido a tu menú dentro de la aplicación.", "¡Gracias!");
+                                    //Aqui pude haber creado una bool bandera pero poniendo ciclo en flase cumplo la funcion del break y de saber que ya pase por aqui
+                                   ciclo = false;
+
+
+                            string result = await DisplayPromptAsync("Código de Verificación", "A continuación ingrese el código que se envió a su correo electrónico:", "Entrar", "Volver", maxLength: 6);  
+
+
+                            }*/
+
+
+
+                        /*
                             if (!ciclo)
                             {
                                 if (chkrecordarc.IsChecked) { persistenciaSUsuario(1, usuario); }
                                 else { persistenciaSUsuario(2, usuario); }
-                                await Navigation.PushAsync(new Tablero(usuario/*, dolar*/));
+                                await Navigation.PushAsync(new Tablero(usuario));
                             }
+                        usuario.CodigoVerificacion = "";
                         }
                         else
                         {
                             await DisplayAlert("Contraseña Incorrecta", "La contraseña que ha ingresado no coincide con la de su usuario.", "OK");
-                        }
+                        }*/
                     
                 }
                 else

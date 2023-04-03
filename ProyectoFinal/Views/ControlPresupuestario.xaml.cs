@@ -15,14 +15,12 @@ namespace ProyectoFinal.Views
     {
         Usuario pusuario;
         Cuenta pcuenta;
-        //Dolar pdolar;
 
-        public ControlPresupuestario(Usuario usuario/*, Dolar dolar*/)
+        public ControlPresupuestario(Usuario usuario)
         {
             InitializeComponent();
 
             pusuario = usuario;
-            //pdolar = dolar;
         }
 
         public ControlPresupuestario(Usuario usuario, Cuenta cuenta)
@@ -170,19 +168,6 @@ namespace ProyectoFinal.Views
             }
             else
             {
-                /*List<string> listccuenta = new List<string>();
-                moneda = "HNL";
-
-                for (int i = 0; i < pckccuenta.ItemsSource.Count-1; i++)
-                {
-                    listccuenta.Add(pckccuenta.ItemsSource[i+1].ToString());
-                }
-
-                lcreditos = await App.DBase.obtenerTransferenciasCuentas(2, listccuenta); //trae las transferencias que tengan que ver con esta lista de cuentas
-                ldebitos = await App.DBase.obtenerTransferenciasCuentas(3, listccuenta); //trae las transferencias que tengan que ver con esta lista de cuentas
-
-                for (int i = 0; i < lcreditos.Count; i++) { entrado += await normalizarMoneda(moneda, lcreditos[i]); }
-                for (int i = 0; i < ldebitos.Count; i++) { salido += await normalizarMoneda(moneda, ldebitos[i]); }*/
 
                 List<string> listccuenta = new List<string>();
 
@@ -206,21 +191,16 @@ namespace ProyectoFinal.Views
                 for (int i = 0; i < lcreditos2.Count; i++) { entrado2 += await normalizarMoneda(moneda2, lcreditos2[i]); }
                 for (int i = 0; i < ldebitos2.Count; i++) { salido2 += await normalizarMoneda(moneda2, ldebitos2[i]); }
 
-                if(moneda == "USD") { entrado = entrado/* * pdolar.Precio*/; salido = salido/* * pdolar.Precio*/; }
+                if(moneda == "USD") { entrado = entrado; salido = salido; }
                 if (moneda2 == "USD") {
-                    entrado2 = entrado2 /** pdolar.Precio*/;
-                    salido2 = salido2 /** pdolar.Precio*/;
+                    entrado2 = entrado2;
+                    salido2 = salido2;
                 }
 
                 moneda = "HNL ";
 
                 detallestse.IsVisible = false;
             }
-
-            /*txtdinet.Text = moneda + " " + string.Format("{0:C}", (entrado+entrado2)).Replace("$", string.Empty);
-            txtdinst.Text = moneda + " " + string.Format("{0:C}", (salido + salido2)).Replace("$", string.Empty);
-            txtentradast.Text = "" + (lcreditos.Count + lcreditos2.Count);
-            txtsalidast.Text = "" + (ldebitos.Count + ldebitos2.Count);*/
 
             txttransferenciasds.Text = moneda + " " + string.Format("{0:C}", transferenciassalido).Replace("$", string.Empty);
             txttransferenciass.Text = "" + transferenciassalidas;
@@ -243,7 +223,6 @@ namespace ProyectoFinal.Views
         {
             var date = transferencia.Fecha;
             date = date.Substring(0, 10);
-            //var dolar = await App.DBase.obtenerPrecioDolar(date);
 
             if (moneda == transferencia.Moneda)
             {
@@ -253,11 +232,11 @@ namespace ProyectoFinal.Views
             {
                 if (moneda == "HNL")
                 {
-                    return transferencia.Valor/* * dolar.Precio*/; // transferencia fue en dolares
+                    return transferencia.Valor; // transferencia fue en dolares
                 }
                 else
                 {
-                    return transferencia.Valor/* / dolar.Compra*/; // transferencia fue en lempiras
+                    return transferencia.Valor; // transferencia fue en lempiras
                 }
             }
 

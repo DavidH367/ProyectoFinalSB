@@ -4,14 +4,14 @@
              x:Class="ProyectoFinal.Views.HistorialTransacciones"
              NavigationPage.HasNavigationBar="False">
     <StackLayout Spacing="0">
-        <StackLayout Orientation="Horizontal" BackgroundColor="#465173">
+        <StackLayout Orientation="Horizontal" BackgroundColor="#FFFFFF"  >
             <!-- Volver<Image/>-->
-            <Label Text="HISTORIAL DE TRANSACCIONES"/>
+            <Label Text="HISTORIAL DE TRANSACCIONES" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Padding="10"/>
         </StackLayout>
 
 
 
-        <StackLayout BackgroundColor="#121D40">
+        <StackLayout BackgroundColor="#dddddd" Padding="8">
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
                 <Frame Padding="0">
@@ -69,7 +69,7 @@
                         <Frame CornerRadius="10" Padding="2" BackgroundColor="{Binding color}">
                             <!--#e81313-->
 
-                            <Frame BackgroundColor="#121D40" CornerRadius="10" Padding="10">
+                            <Frame BackgroundColor="#003153" CornerRadius="10" Padding="10">
                                 <StackLayout BackgroundColor="Transparent">
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                         <StackLayout Orientation="Horizontal">
