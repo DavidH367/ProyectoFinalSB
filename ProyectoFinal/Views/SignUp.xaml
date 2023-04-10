@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinal.Views.SignUp"
              NavigationPage.HasNavigationBar="False">
-    <StackLayout BackgroundColor="#131D47">
+    <StackLayout BackgroundColor="#F8F8FF">
         <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="Fill">
             <!-- Volver<Image/>-->
-            <Label TextColor="#FFFFFF" Text="REGISTRO" FontSize="20" FontAttributes="Bold"/>
+            <Label TextColor="#333333" Text="REGISTRO" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
 
             <ImageButton Clicked="ImageButton_Clicked" Source="home.png" HeightRequest="25" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
         </StackLayout>
@@ -16,7 +16,7 @@
             <StackLayout Padding="25">
 
                 <StackLayout>
-                    <Label Text="Fotografía" TextColor="#FFFFFF" FontAttributes="Bold"/>
+                    <Label Text="Fotografía" TextColor="#333333" FontAttributes="Bold"/>
                     <Frame BackgroundColor="#FFFFFF" Padding="5">
                         <Image x:Name="imgpersona" HeightRequest="200" WidthRequest="200"/>
 
@@ -28,7 +28,7 @@
 
 
                     <StackLayout>
-                        <Label TextColor="#FFFFFF" Margin="0,25,0,0" Text="Nombre Completo"  FontAttributes="Bold"/>
+                        <Label TextColor="#333333 " Margin="0,25,0,0" Text="Nombre Completo"  FontAttributes="Bold"/>
                         <Frame Padding="0" CornerRadius="10">
 
                             <Entry x:Name="txtnombrecompleto"/>
@@ -40,7 +40,7 @@
 
                     <StackLayout Orientation="Horizontal" Margin="0,25,0,0">
                         <StackLayout>
-                            <Label TextColor="#FFFFFF" Text="Fecha de Nacimiento"  FontAttributes="Bold"/>
+                            <Label TextColor="#333333" Text="Fecha de Nacimiento"  FontAttributes="Bold"/>
                             <Frame Padding="0" CornerRadius="10">
 
                                 <DatePicker x:Name="dtfechanacimiento" VerticalOptions="CenterAndExpand" FontSize="18"/>
@@ -50,7 +50,7 @@
                         </StackLayout>
 
                         <StackLayout Margin="10,0,0,0">
-                            <Label TextColor="#FFFFFF" Text="Sexo"  FontAttributes="Bold"/>
+                            <Label TextColor="#333333 " Text="Sexo"  FontAttributes="Bold"/>
 
                             <Frame Padding="0" CornerRadius="10">
                                 <Picker x:Name="pcksexo" Title="Seleccione un sexo" FontSize="18">
@@ -71,7 +71,7 @@
 
 
                     <StackLayout Margin="0,25,0,0">
-                        <Label TextColor="#FFFFFF" Text="Dirección"/>
+                        <Label TextColor="#333333" Text="Dirección"/>
                         <Frame Padding="0" CornerRadius="10">
                             <Editor x:Name="txtdireccion" HeightRequest="100"/>
 
@@ -93,7 +93,7 @@
                 </StackLayout>
                 <StackLayout>
                     <StackLayout>
-                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Número de identidad"/>
+                        <Label TextColor="#333333" FontAttributes="Bold" Text="Número de identidad"/>
 
                         <Frame Padding="0" CornerRadius="10">
                             <Entry x:Name="txtnumeroidentidad" MaxLength="13" Keyboard="Numeric"/>
@@ -105,7 +105,7 @@
 
 
                     <StackLayout Margin="0,15,0,0">
-                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Nombre de usuario"/>
+                        <Label TextColor="#333333" FontAttributes="Bold" Text="Nombre de usuario"/>
                         <Frame Padding="0" CornerRadius="10">
                             <Entry x:Name="txtusuario"/>
 
@@ -115,7 +115,7 @@
 
 
                     <StackLayout Margin="0,15,0,0">
-                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Correo electrónico"/>
+                        <Label TextColor="#333333" FontAttributes="Bold" Text="Correo electrónico"/>
                         <Frame Padding="0" CornerRadius="10">
                             <Entry x:Name="txtemail" Keyboard="Email"/>
                         </Frame>
@@ -124,7 +124,7 @@
 
 
                     <StackLayout>
-                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Contraseña"/>
+                        <Label TextColor="#333333" FontAttributes="Bold" Text="Contraseña"/>
                         <Frame Padding="0" CornerRadius="10">
 
                             <Entry x:Name="txtcontraseña" IsPassword="True"/>
@@ -134,7 +134,7 @@
 
 
                     <StackLayout>
-                        <Label TextColor="#FFFFFF" FontAttributes="Bold" Text="Repetir contraseña"/>
+                        <Label TextColor="#333333" FontAttributes="Bold" Text="Repetir contraseña"/>
                         <Frame Padding="0" CornerRadius="10">
                             <Entry x:Name="txtcontraseñarepetida" IsPassword="True"/>
 

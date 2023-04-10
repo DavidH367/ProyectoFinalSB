@@ -5,14 +5,14 @@
              NavigationPage.HasNavigationBar="False">
 
 
-    <StackLayout BackgroundColor="#F8F8FF" Padding="50">
+    <StackLayout BackgroundColor="#F8F8FF" Padding="70">
 
         <StackLayout x:Name="_pagecontent" IsVisible="True">
             <Label TextColor="#333333" Text="STAR BANK" FontSize="40" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
-            <Image Source="logosb.png" />
+            <Image Source="logosb.png" Scale="0.7"  />
 
 
-            <StackLayout Margin="0,50,0,0">
+            <StackLayout Margin="0,5,0,0">
                 <Label TextColor="#333333" Text="Usuario"/>
                 <Frame Padding="0" CornerRadius="10">
                     <Entry x:Name="txtusuario"/>
@@ -21,7 +21,7 @@
 
 
 
-            <StackLayout Margin="0,25,0,0">
+            <StackLayout Margin="0,15,0,0">
                 <Label TextColor="#333333" Text="Contraseña"/>
                 <Frame Padding="0" CornerRadius="10">
                     <Entry x:Name="txtcontraseña" IsPassword="True"/>
